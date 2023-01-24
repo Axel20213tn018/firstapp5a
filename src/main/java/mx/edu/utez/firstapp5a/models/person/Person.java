@@ -16,15 +16,16 @@ import javax.persistence.*;
 @Getter
 public class Person {
     @Id
-    //Auto-Increment
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String surname;
     private String lastname;
     private String birthday;
     private String curp;
-    private String sex;
     private Boolean status;
+    private String sex;
+
     @OneToOne(mappedBy = "person", cascade = CascadeType.PERSIST)
     @PrimaryKeyJoinColumn
     private User user;

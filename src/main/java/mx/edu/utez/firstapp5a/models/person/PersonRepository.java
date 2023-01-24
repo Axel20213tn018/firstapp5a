@@ -1,4 +1,16 @@
 package mx.edu.utez.firstapp5a.models.person;
 
-public interface PersonRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface PersonRepository extends JpaRepository<Person, Long> {
+    boolean findById(long id);
+    Person findByCurp(String curp);
+    List<Person> findAllBySex(String sex);
+    //@Query(name = "SELECT * FROM people", nativeQuery = true)
+    //List<Person> BuscarTodos();
 }
