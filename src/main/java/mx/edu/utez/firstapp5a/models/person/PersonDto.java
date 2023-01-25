@@ -6,17 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.firstapp5a.models.user.User;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "persons")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PersonDto {
     private Long id;
     private String name;
     private String surname;
@@ -25,8 +19,19 @@ public class Person {
     private String curp;
     private Boolean status;
     private String sex;
-
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     private User user;
+
+    public Person getPerson(){
+        return new Person(
+                getId(),
+                getName(),
+                getSurname(),
+                getLastname(),
+                getBirthday(),
+                getCurp(),
+                getStatus(),
+                getSex(),
+                getUser()
+        );
+    }
 }

@@ -24,6 +24,9 @@ public class User {
     private String username;
     private String password;
     private Boolean status;
+    //@Column(columnDefinition = "TIMESTAMP NULL ")
+    private String lastAccess;
+    private Boolean blocked;
     private String token;
     @OneToOne
     @MapsId
