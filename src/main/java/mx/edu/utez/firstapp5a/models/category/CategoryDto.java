@@ -18,7 +18,7 @@ public class CategoryDto {
     private Boolean status;
     private List<SubCategory> subCategories;
 
-    public List<SubCategory> getCategories(){
+    public Category getCategories(){
         return null;
     }
 }

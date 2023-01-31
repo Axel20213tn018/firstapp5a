@@ -33,8 +33,17 @@ public class PersonController {
     }
     @PostMapping("/")
     public ResponseEntity<CustomResponse<Person>> insert(
-            @RequestBody PersonDto person,@Valid BindingResult result
+            @Valid @RequestBody PersonDto person
     ){
+        return new ResponseEntity<>(
+            this.service.insert(person.getPerson()),
+            HttpStatus.CREATED
+        );
+
+    }
+}
+
+/*
         if (result.hasFieldErrors()){
             return  new ResponseEntity<>(
                     null,
@@ -45,5 +54,4 @@ public class PersonController {
                 this.service.insert(person.getPerson()),
                 HttpStatus.CREATED
         );
-    }
-}
+        */

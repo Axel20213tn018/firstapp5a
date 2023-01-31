@@ -5,11 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
     boolean findById(long id);
-    Person findByCurp(String curp);
+    Optional<Person> findByCurp(String curp);
     List<Person> findAllBySex(String sex);
     //@Query(name = "SELECT * FROM people", nativeQuery = true)
     //List<Person> BuscarTodos();

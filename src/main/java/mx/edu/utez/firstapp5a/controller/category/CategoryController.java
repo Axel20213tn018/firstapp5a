@@ -39,7 +39,7 @@ public class CategoryController {
             );
         }
         return new ResponseEntity<>(
-                this.service.insert(category.),
+                this.service.insert(category.getCategories()),
                 HttpStatus.CREATED
         );
     }

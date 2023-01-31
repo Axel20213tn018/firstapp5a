@@ -43,6 +43,6 @@ public class PersonService {
                 false,
                 200,
                 "Persona Registrada correctamente"
-        )
+        );
     }
 }
